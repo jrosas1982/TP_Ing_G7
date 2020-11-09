@@ -48,7 +48,6 @@ function normalizar() {
         if (this.readyState == 4 && this.status == 200) {
             var lista = JSON.parse(this.responseText);
             for (var index = 0; index < (Object.keys(lista.direccionesNormalizadas).length); index++) {
-                console.log("Acá las localidades " + lista.direccionesNormalizadas[index].nombre_localidad);
                 document.getElementById("direccionNormalizada").innerHTML += ' <option value=' + index + '>' + lista.direccionesNormalizadas[index].direccion + ', ' + lista.direccionesNormalizadas[index].nombre_localidad + '</option>';
                 coordenada = [lista.direccionesNormalizadas[index].coordenadas.y, lista.direccionesNormalizadas[index].coordenadas.x];
                 dibujarMarcadores(coordenada);
