@@ -7,17 +7,48 @@
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/main.css">
+    <script src="./js/cuadros.js"></script>
+    <script src="./js/main_c.js"></script>
 </head>
 
 <body>
-    <h1 style="text-align: center;">Ver artistas</h1>
-    <form action="">
-        <input type="text" name="calle1" id="calle1" value="">primera calle
-        <input type="text" name="calle2" id="calle2">segunda calle
-        <button type="button" onclick="normalizar()">enviar</button>
-    </form>
-    <p id="demo"></p>
-    <div id="demo2" style="display: flex;">
+
+    <h1></h1>
+    <h2></h2>
+    <h3></h3>
+
+    <div id="mybox">
+
+    </div>
+
+    <!--formulario-->
+    <div id="myform">
+        <form action="/my-handling-form-page" method="post">
+            <ul>
+                <h2 id="h1">Busqueda de Cuadros</h2>
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" placeholder="nombre del cuadro" />
+
+                <label for="autor">Autor</label>
+                <input type="text" name="autor" id="autor" placeholder="ingrese autor" />
+
+                <!--<label for="publicacion" />Fecha de publicacion</label>
+        					<input type="date" name="publicacion" id="publicacion" placeholder="dd/mm/aaaa" />-->
+
+                <p>
+                    Tipo:
+                    <select name="tipo" id="tipo">
+                            <option>Ninguna</option>
+                            <option>Original</option>
+                            <option>Copia</option>
+                        </select>
+                </p>
+
+                <button type="button" id="boton1" onclick="comparar()">Search</button>
+
+            </ul>
+
+        </form>
 
     </div>
     <script src="/main.js"></script>
