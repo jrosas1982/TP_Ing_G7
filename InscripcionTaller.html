@@ -23,58 +23,74 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="/">Galeria de arte </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item ">
                             <a class="nav-link" href="verTalleres.html">Buscar Talleres</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="verArtistas.html">Buscar Artistas<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="verArtistas.html">Buscar Artistas<span
+                                    class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item" style="text-align: right;">
                             <a class="nav-link" href="login.html">Ingresar</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="registrar.html">Registrar<span class="sr-only">(current)</span></a>
+                            <a class="nav-link active" href="registrar.html">Registrar<span
+                                    class="sr-only">(current)</span></a>
                         </li>
                     </ul>
                 </div>
             </nav>
         </div>
         <h1 style="text-align: center;">Galeria de Arte Virtual</h1>
-
+        <p>Los representantes de un taller, podrán realizar un pedido de inscripción de su espacio de trabajo. Deberán anotar el nombre y una descripción general del lugar, las actividades ofrecidas, junto con la dirección, horarios, teléfono, alguna foto
+            principal, etc.
+        </p>
+        <p>Para evitar inconvenientes con las ubicaciones desde el sistema se deberá interactuar con algún servicio externo que permita la normalización de las direcciones al momento de la inscripción de un taller.</p>
         <form>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputNombre">Nombre</label>
-                    <input type="text" class="form-control" id="inputNombre">
+                    <label for="inputNombreTaller">Nombre</label>
+                    <input type="text" class="form-control" id="inputNombreTaller">
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="inputTelefono">Telefono</label>
-                    <input type="text" class="form-control" id="inputTelefono">
+                    <label for="inputDescripcion">Descripcion</label>
+                    <input type="text" class="form-control" id="inputDescripcion">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputEmail4">Email</label>
-                    <input type="email" class="form-control" id="inputEmail4">
+                    <label for="inputActividades">Actividades</label>
+                    <input type="text" class="form-control" id="inputActividades">
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="inputPassword4">Password</label>
-                    <input type="password" class="form-control" id="inputPassword4">
+                    <label for="inputDirección">Dirección</label>
+                    <input type="text" class="form-control" id="inputDirección" value="" onblur="normalizar()" onkeyup="limpiarSelector()">
                 </div>
             </div>
-            <div class="form-group">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                  Check me out
-                </label>
+            <div>
+                <select class="custom-select custom-select-sm" id="direccionNormalizada">
+                <option>Seleccione la dirección</option>
+            </select>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputHorarios">Horarios</label>
+                    <input type="datetime-local" class="form-control" id="inputHorarios">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputTelefonoTaller">Telefono</label>
+                    <input type="text" class="form-control" id="inputTelefonoTaller" maxlength="10">
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Registrarme</button>
+            <div>
+                <input name="uploadedfile" type="file" />
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Solicitar Inscripción</button>
         </form>
         <div id="mapid">
         </div>
