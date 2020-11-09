@@ -46,10 +46,7 @@
             </nav>
         </div>
         <h1 style="text-align: center;">Galeria de Arte Virtual</h1>
-        <p>Los representantes de un taller, podrán realizar un pedido de inscripción de su espacio de trabajo. Deberán anotar el nombre y una descripción general del lugar, las actividades ofrecidas, junto con la dirección, horarios, teléfono, alguna foto
-            principal, etc.
-        </p>
-        <p>Para evitar inconvenientes con las ubicaciones desde el sistema se deberá interactuar con algún servicio externo que permita la normalización de las direcciones al momento de la inscripción de un taller.</p>
+
         <form>
             <div class="form-row">
                 <div class="form-group col-md-6">
@@ -90,9 +87,32 @@
                 <input name="uploadedfile" type="file" />
             </div>
             <br>
-            <button type="submit" class="btn btn-primary">Solicitar Inscripción</button>
+            <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Solicitar Inscripción</button>
         </form>
         <div id="mapid">
+        </div>
+    </div>
+
+    <!-- Button trigger modal
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Launch demo modal
+    </button> -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Aviso de solicitud de inscripción</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Solicitud ingresada con exito
+                </div>
+
+            </div>
         </div>
     </div>
 

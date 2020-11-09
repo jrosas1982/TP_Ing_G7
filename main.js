@@ -18,6 +18,10 @@ function dibujarMarcadores(coordenada) {
     marker = new L.marker([(coordenada[0]), coordenada[1]]).addTo(map);
 }
 
+function borrarMarcadores() {
+
+}
+
 function loguearEmail() {
     var email = $("#exampleInputEmail1").val();
     //  localStorage.setItem("email", email);
