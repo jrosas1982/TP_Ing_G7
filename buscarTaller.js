@@ -4,7 +4,6 @@ let listaTalleres = [taller1, taller2];
 var map;
 
 function cargarAlIniciar() {
-    console.log("llega a cargar");
     var ungsLocation = [-34.5221554, -58.7000067];
     map = L.map('mapid').setView(ungsLocation, 15);
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
@@ -20,7 +19,7 @@ function mostrarEnMapa() {
         if (listaTalleres[i].nombre.toUpperCase() == nombreDelTaller.toUpperCase()) {
             coordenada.push(listaTalleres[i].latitud);
             coordenada.push(listaTalleres[i].longitud);
-            var tallerMarker = L.marker(coordenada);
+            var tallerMarker = L.marker(coordenada, { closeOnClick: true });
             tallerMarker.bindPopup("Nombre del Taller: " + listaTalleres[i].nombre + "<br/>" + "Franja Horaria: " + listaTalleres[i].franjaHoraria + "<br/>" + "Numero de Telefono : " + listaTalleres[i].nroDeTelefono + "<img style='width:100%' src='" + listaTalleres[i].img + "' alt=''>");
             map.setView(coordenada, 15);
             L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
