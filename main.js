@@ -6,6 +6,7 @@ function bootstrapo() {
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
+    cargarHeader();
 }
 
 function getMapa() {
@@ -16,10 +17,6 @@ function dibujarMarcadores(coordenada) {
     var primeraUbicacion = [coordenada[0], coordenada[1]];
     map.setView(primeraUbicacion, 15);
     marker = new L.marker([(coordenada[0]), coordenada[1]]).addTo(map);
-}
-
-function borrarMarcadores() {
-
 }
 
 function loguearEmail() {

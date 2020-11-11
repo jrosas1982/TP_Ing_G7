@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./leaflet/MarkerCluster.Default.css">
     <script src="./leaflet/leaflet.markercluster-src.js"></script>
     <script src="./view.js"></script>
+    <link rel="stylesheet" href="/main.css">
 </head>
 <header>
     <div>
@@ -39,17 +40,28 @@
             </div>
         </nav>
 </header>
-<h1 style="text-align: center;">Galeria de Arte Virtual</h1>
 
 <body onload="cargarAlIniciar()">
     <div class="container" id="verTalleres">
         <div id="formulario">
             <form id="formularioBusqueda">
-                <label for="nombre">Nombre</label>
+                <h2 class="centrado">Busqueda de Talleres</h2>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" class="form-control" id="inputNombreTaller" value="" placeholder="Ingresa nombre del taller">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="autor">Actividad</label>
+                        <input type="text" class="form-control" id="actividadTaller" value="" placeholder="Ingresa actividad">
+                    </div>
+                </div>
+                <!-- <label for="nombre">Nombre</label>
                 <input type="text" id="inputNombreTaller" value="" placeholder="Ingresa nombre del taller"><br>
                 <label for="actividad">Actividad</label>
-                <input type="text" id="actividadTaller" value="" placeholder="Ingresa actividad">
-                <button type="button" onclick="mostrarEnMapa()">Buscar Taller</button>
+                <input type="text" id="actividadTaller" value="" placeholder="Ingresa actividad"> -->
+                <button type="button" class="btn btn-primary btn-lg btn-block" onclick="mostrarEnMapa()">Buscar Taller</button>
+                <!-- <button type="button" onclick="mostrarEnMapa()">Buscar Taller</button> -->
             </form>
         </div>
         <div id="mapid">
