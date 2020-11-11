@@ -1,5 +1,5 @@
-var taller1 = { nombre: "Picasso", latitud: -34.667104, longitud: -58.370278, nroDeTelefono: "02320-683182", franjaHoraria: "De 07:00 a 18:30", img: "img/img_avatar.png" };
-var taller2 = { nombre: "Rembrandt", latitud: -34.600104, longitud: -58.380678, nroDeTelefono: "02320-683182", franjaHoraria: "De 08:00 a 20:00", img: "img/img_avatar.png" };
+var taller1 = { nombre: "Picasso", latitud: -34.667104, longitud: -58.370278, nroDeTelefono: "02320-683182", franjaHoraria: "De 07:00 a 18:30", img: "img/tallerPicasso.jpg" };
+var taller2 = { nombre: "Rembrandt", latitud: -34.600104, longitud: -58.380678, nroDeTelefono: "02320-683182", franjaHoraria: "De 08:00 a 20:00", img: "img/tallerRem.jpg" };
 let listaTalleres = [taller1, taller2];
 var map;
 
