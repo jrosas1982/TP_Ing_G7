@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <!-- js -->
     <script src="js/buscarTaller.js"></script>
+    <script src="./js/listas.js"></script>
     <script src="./leaflet/leaflet.js"></script>
     <script src="./leaflet/leaflet.markercluster-src.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -20,31 +21,7 @@
 
 
 </head>
-<!-- <header>
-    <div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="/">Galeria de arte </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item ">
-                        <a class="nav-link active" href="verTalleres.html">Buscar Talleres</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="verArtistas.html">Buscar Artistas<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item" style="text-align: right;">
-                        <a class="nav-link" href="login.html">Ingresar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="registrar.html">Registrar<span class="sr-only">(current)</span></a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-</header> -->
+
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light" id="header1">
         <a class="navbar-brand" href="/">Galeria de arte </a>
@@ -87,15 +64,33 @@
                 <h2 class="centrado">Busqueda de Talleres</h2>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="nombre">Nombre</label>
-                        <input type="text" class="form-control" id="inputNombreTaller" value="" placeholder="Ingresa nombre del taller">
+                        <label for="seleccionDeTaller">Seleccione nombre del taller</label>
+                        <select class="custom-select" name="seleccionDeTaller" id="seleccionDeTaller">
+                            <option>Seleccionar</option>
+                            <option>Picasso</option>
+                            <option>Leonardo da Vinci</option>
+                            <option>Salvador Dali</option>
+                            <option>Caravaggio</option>
+                            <option>Renoir</option>
+                            <option>Rembrandt</option>
+                        </select>
                     </div>
+
                     <div class="form-group col-md-6">
-                        <label for="autor">Actividad</label>
-                        <input type="text" class="form-control" id="actividadTaller" value="" placeholder="Ingresa actividad">
+                        <label for="seleccionDeActividad">Seleccione una actividad</label>
+                        <select class="custom-select" name="seleccionDeActividad" id="seleccionDeActividad">
+                            <option>Seleccionar</option>
+                            <option>Cubismo</option>
+                            <option>Escultura</option>
+                            <option>Pintura</option>
+                            <option>Expresionimso</option>
+                            <option>Arte Figurativo</option>
+                            <option>Dadaismo</option>
+                        </select>
                     </div>
                 </div>
-                <button type="button" class="btn btn-primary btn-lg btn-block" onclick="mostrarEnMapa()">Buscar Taller</button>
+                <button type="button" class="btn btn-primary btn-lg btn-block" onclick="mostrarEnMapa()">Buscar
+                    Taller</button>
             </form>
         </div>
         <div id="mapid">
@@ -109,8 +104,8 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">INGRESAR</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
                     <form>
@@ -129,6 +124,10 @@
         </div>
     </div>
     <!-- Final Modal -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
 </body>
+
 
 </html>

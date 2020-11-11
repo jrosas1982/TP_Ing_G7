@@ -22,6 +22,6 @@ function comparar() {
 function mostrarResultados(arreglo) {
     document.getElementById("mybox").innerHTML = " ";
     for (var item of arreglo) {
-        document.getElementById("mybox").innerHTML += " <div class='card'><img src='" + item.imagen + "' alt='Avatar' style='width:100% heigth='200px;'' > <div class='container'> <h4><b>Nombre: " + item.nombre + "</b></h4> <p>Autor: " + item.autor + " </p> </b></h4> <p>Autor: " + item.tipo + " </p> </div> </div> <br>";
+        document.getElementById("mybox").innerHTML += " <div class='card'><img src='" + item.imagen + "' alt='Avatar' style='width:100% heigth='200px;'' > <div class='container'> <h4><b>Nombre: " + item.nombre + "</b></h4> <p>Autor: " + item.autor + " </p> </b></h4> <p>Tipo: " + item.tipo + " </p> </div> </div> <br>";
     }
 }
