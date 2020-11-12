@@ -8,11 +8,6 @@ function bootstrapo() {
     }).addTo(map);
 }
 
-
-function getMapa() {
-    return map;
-}
-
 function dibujarMarcadores(coordenada) {
     var primeraUbicacion = [coordenada[0], coordenada[1]];
     map.setView(primeraUbicacion, 15);
@@ -21,13 +16,9 @@ function dibujarMarcadores(coordenada) {
 
 function loguearEmail() {
     var email = $("#exampleInputEmail1").val();
-    //  localStorage.setItem("email", email);
     sessionStorage.setItem("email", email);
     console.log("email guardado  " + sessionStorage.getItem("email").toLocaleUpperCase());
-    $("#usuario").innerHTML = "<p> Hola </p>";
     $("#login").show();
-
-    // console.log("email guardado  " + localStorage.getItem("email").toLocaleUpperCase());
 }
 
 function limpiarSelector() {
@@ -49,11 +40,29 @@ function normalizar() {
                 coordenada = [lista.direccionesNormalizadas[index].coordenadas.y, lista.direccionesNormalizadas[index].coordenadas.x];
                 dibujarMarcadores(coordenada);
             }
-            console.log("lista: " + Object.keys(lista.direccionesNormalizadas));
-            // console.log("response: " + this.responseText);
-            // console.log(this.status);
         }
     };
     xhttp.open("GET", url + calle + localizacion, true);
     xhttp.send();
+}
+
+function actualizarDireccionNormalizada() {
+    var direccionNormalizadaElegida = $('select[name="normalizaDire"] option:selected').text();
+    if (direccionNormalizadaElegida == "Seleccione la dirección") {
+        direccionNormalizadaElegida = "";
+    }
+    $("#inputDirección").val(direccionNormalizadaElegida);
+}
+
+function validaDireccioParaInscripcion() {
+    var direccionNormalizadaElegida = $('select[name="normalizaDire"] option:selected').text();
+    var direccionEscrita = $("#inputDirección").val();
+    if (direccionNormalizadaElegida == direccionEscrita) {
+        $("#exampleModal").modal('show')
+            .on("hidden.bs.modal", function() {
+                window.location.href = "InscripcionTaller.html";
+            });
+    } else {
+        $("#ModalNoOK").modal('show');
+    }
 }

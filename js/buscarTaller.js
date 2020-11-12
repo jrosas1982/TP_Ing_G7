@@ -1,4 +1,5 @@
 var map;
+var tallerMarker;
 
 function cargarAlIniciar() {
     var ungsLocation = [-34.5221554, -58.7000067];
@@ -8,12 +9,15 @@ function cargarAlIniciar() {
     }).addTo(map);
 }
 
-// function limpiarMarker(){
-// map.removeLayer(tallerMarker);
-// }
+function limpiarMarker() {
+    map.removeLayer(tallerMarker);
+}
 
 //Mostrar talleres en el mapa.
 function mostrarEnMapa() {
+    if (tallerMarker != undefined) {
+        limpiarMarker();
+    }
     //var nombreDelTaller = $("#inputNombreTaller").val(); //Obtengo el valor ingresado del Label NombreTaller
     var coordenada = [];
     var nombreDelTaller = document.getElementById("seleccionDeTaller").value;
