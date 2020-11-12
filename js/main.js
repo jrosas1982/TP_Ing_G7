@@ -31,7 +31,6 @@ function normalizar() {
     var localizacion = '&geocodificar=TRUE';
     var xhttp = new XMLHttpRequest();
     var coordenada = [];
-    var mapa1 = getMapa();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var lista = JSON.parse(this.responseText);

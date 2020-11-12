@@ -13,29 +13,61 @@ function limpiarMarker() {
     map.removeLayer(tallerMarker);
 }
 
-//Mostrar talleres en el mapa.
+function buscarTalleresRegistrados(elem, tipo) {
+    var tallerSeleccionado;
+    for (var i = 0; i < listaTalleres.length; i++) {
+        if (tipo == "nombre") {
+            if (listaTalleres[i].nombre == elem) {
+                tallerSeleccionado = listaTalleres[i];
+            }
+        } else {
+            if (listaTalleres[i].actividad == elem) {
+                tallerSeleccionado = listaTalleres[i];
+            }
+        }
+    }
+    return tallerSeleccionado;
+}
+
+function buscarPorNombreTaller() {
+    return buscarTalleresRegistrados(document.getElementById("seleccionDeTaller").value, "nombre");
+}
+
+function buscarPorActividad() {
+    return buscarTalleresRegistrados(document.getElementById("seleccionDeActividad").value, "actividad");
+}
+
+function limpiarSelectorActividad() {
+    $("#seleccionDeActividad").val("Seleccionar");
+}
+
+function limpiarSelectorTaller() {
+    $("#seleccionDeTaller").val("Seleccionar");
+}
+
 function mostrarEnMapa() {
     if (tallerMarker != undefined) {
         limpiarMarker();
     }
-    //var nombreDelTaller = $("#inputNombreTaller").val(); //Obtengo el valor ingresado del Label NombreTaller
-    var coordenada = [];
-    var nombreDelTaller = document.getElementById("seleccionDeTaller").value;
-    var tipoDeActividad = document.getElementById("seleccionDeActividad").value;
-    for (var i = 0; i < listaTalleres.length; i++) {
-        //OBTENER LATITUD Y LONGITUD DE TALLER INGRESADO POR TECLADO
-        if (listaTalleres[i].nombre.toUpperCase() == nombreDelTaller.toUpperCase() || listaTalleres[i].actividad.toUpperCase() == tipoDeActividad.toUpperCase()) {
-            coordenada.push(listaTalleres[i].latitud);
-            coordenada.push(listaTalleres[i].longitud);
-            tallerMarker = L.marker(coordenada, { closeOnClick: true });
-            tallerMarker.bindPopup("Nombre del Taller: " + listaTalleres[i].nombre + "<br/>" + "Franja Horaria: " + listaTalleres[i].franjaHoraria + "<br/>" + "Tipo de Actividad: " + listaTalleres[i].actividad + "<br/>" + "Numero de Telefono : " + listaTalleres[i].nroDeTelefono + "<img style='width:100%' src='" + listaTalleres[i].img + "' alt=''>");
-            map.setView(coordenada, 15);
-            L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
-            tallerMarker.addTo(map);
-
-        }
+    var coordeSelected = [];
+    var mostrarATaller;
+    if (document.getElementById("seleccionDeTaller").value != "Seleccionar") {
+        mostrarATaller = buscarPorNombreTaller();
+        coordeSelected.push(mostrarATaller.latitud);
+        coordeSelected.push(mostrarATaller.longitud);
     }
-
+    if (document.getElementById("seleccionDeActividad").value != "Seleccionar") {
+        mostrarATaller = buscarPorActividad();
+        coordeSelected.push(mostrarATaller.latitud);
+        coordeSelected.push(mostrarATaller.longitud);
+    }
+    if (coordeSelected[0] != null) {
+        tallerMarker = L.marker(coordeSelected, { closeOnClick: true });
+        tallerMarker.bindPopup("Nombre del Taller: ".fontsize(4) + mostrarATaller.nombre.fontsize(4).fontcolor("red") + "<br/>" + "Franja Horaria: ".fontsize(4) + mostrarATaller.franjaHoraria.fontsize(4).fontcolor("red") + "<br/>" + "Tipo de Actividad: ".fontsize(4) + mostrarATaller.actividad.fontsize(4).fontcolor("red") + "<br/>" + "Numero de Telefono : ".fontsize(4) + mostrarATaller.nroDeTelefono.fontsize(4).fontcolor("red") + "<img style='width:100%' src='" + mostrarATaller.img + "' alt=''>");
+        map.setView(coordeSelected, 15);
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        tallerMarker.addTo(map);
+    }
 }
