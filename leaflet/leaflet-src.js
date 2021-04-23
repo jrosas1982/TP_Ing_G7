@@ -14,7 +14,6 @@ function expose() {
 		window.L = oldL;
 		return this;
 	};
-
 	window.L = L;
 }
 
